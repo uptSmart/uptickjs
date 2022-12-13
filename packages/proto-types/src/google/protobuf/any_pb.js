@@ -13,13 +13,7 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = (function() {
-  if (this) { return this; }
-  if (typeof window !== 'undefined') { return window; }
-  if (typeof global !== 'undefined') { return global; }
-  if (typeof self !== 'undefined') { return self; }
-  return Function('return this')();
-}.call(null));
+var global = (function() { return this || window || global || self || Function('return this')(); }).call(null);
 
 var gogoproto_gogo_pb = require('../../gogoproto/gogo_pb.js');
 goog.object.extend(proto, gogoproto_gogo_pb);
@@ -76,27 +70,10 @@ proto.google.protobuf.Any.prototype.toObject = function(opt_includeInstance) {
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.google.protobuf.Any.toObject = function(includeInstance, msg) {
-
-
-  console.log("xxl proto.google.protobuf.Any.toObject 00");
-  console.log(msg);
-
-  //xxl ##00 checkut pubkey
-  let pubkeyValue = "";
-  let typeUrl = "";
-  if ( typeof msg !== 'undefined' && msg ){
-    pubkeyValue = msg.getValue();
-    typeUrl = jspb.Message.getFieldWithDefault(msg, 1, "");
-  }else{
-    //xxl ##00 default is secp256k1
-    typeUrl = "/cosmos.crypto.secp256k1.PubKey";
-  }
-
-  var obj = {
-    typeUrl: typeUrl,
-    value: pubkeyValue
+  var f, obj = {
+    typeUrl: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    value: msg.getValue_asB64()
   };
-  //
 
   if (includeInstance) {
     obj.$jspbMessageInstance = msg;
@@ -219,9 +196,6 @@ proto.google.protobuf.Any.prototype.getValue = function() {
  * @return {string}
  */
 proto.google.protobuf.Any.prototype.getValue_asB64 = function() {
-
-  console.log("xxl 00 proto.google.protobuf.Any.prototype.getValue_asB64");
-
   return /** @type {string} */ (jspb.Message.bytesAsB64(
       this.getValue()));
 };

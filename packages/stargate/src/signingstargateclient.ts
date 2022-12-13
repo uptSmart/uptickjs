@@ -85,6 +85,9 @@ const nft_tx_pb = require("@uptsmart/proto-types/src/uptick/collection/v1/tx_pb"
 //xxl ## add erc20 convert msg 0622
 const erc20_tx_pb = require("@uptsmart/proto-types/src/uptick/erc20/v1/tx_pb");
 
+//xxl 02 local
+const erc721_tx_pb = require("../../proto-types/src/uptick/erc721/v1/tx_pb")
+
 import Long from "long";
 
 import { AminoTypes } from "./aminotypes";
@@ -139,7 +142,7 @@ export const defaultRegistryTypes: ReadonlyArray<[string, GeneratedType]> = [
   ["/ibc.core.connection.v1.MsgConnectionOpenInit", MsgConnectionOpenInit],
   ["/ibc.core.connection.v1.MsgConnectionOpenTry", MsgConnectionOpenTry],
 
-  //xxl ##01 list 
+  //xxl 01 list 
   ["/uptick.collection.v1.MsgIssueDenom", nft_tx_pb.MsgIssueDenom],
   ["/uptick.collection.v1.MsgMintNFT", nft_tx_pb.MsgMintNFT],
   ["/uptick.collection.v1.MsgTransferNFT", nft_tx_pb.MsgTransferNFT],
@@ -147,6 +150,10 @@ export const defaultRegistryTypes: ReadonlyArray<[string, GeneratedType]> = [
 
   ["/uptick.erc20.v1.MsgConvertERC20", erc20_tx_pb.MsgConvertERC20],
   ["/uptick.erc20.v1.MsgConvertCoin", erc20_tx_pb.MsgConvertCoin],
+
+  //xxl 02 list 
+  ["/uptick.erc721.v1.MsgConvertERC721", erc721_tx_pb.MsgConvertERC721],
+  ["/uptick.erc721.v1.MsgConvertNFT", erc721_tx_pb.MsgConvertNFT],
   
 
 ];
@@ -276,7 +283,6 @@ export class SigningStargateClient extends StargateClient {
     memo = "",
   ){
     console.log("xxl test ");
-    
     return this.signAndBroadcast(senderAddress,sendMsgs, fee, memo);
   }
 
@@ -480,13 +486,6 @@ export class SigningStargateClient extends StargateClient {
     }
     const pubkey = encodePubkey(encodeSecp256k1Pubkey(accountFromSigner.pubkey));
     pubkey.typeUrl = "/ethermint.crypto.v1.ethsecp256k1.PubKey";
-    
-    // console.log("###xxl before pubkey");
-    // console.log(pubkey);
-    // pubkey.typeUrl = "/ethermint.crypto.v1.ethsecp256k1.PubKey";
-    // console.log(pubkey);
-    // console.log("###xxl after pubkey");
-    
 
     const txBodyEncodeObject: TxBodyEncodeObject = {
       typeUrl: "/cosmos.tx.v1beta1.TxBody",

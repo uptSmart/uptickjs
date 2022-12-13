@@ -2,7 +2,6 @@ syntax = "proto3";
 package uptick.erc721.v1;
 
 import "google/api/annotations.proto";
-import "gogoproto/gogo.proto";
 
 option go_package = "github.com/UptickNetwork/uptick/x/erc721/types";
 

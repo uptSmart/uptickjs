@@ -26,7 +26,6 @@ goog.object.extend(proto, cosmos_proto_cosmos_pb);
 var gogoproto_gogo_pb = require('../../../gogoproto/gogo_pb.js');
 goog.object.extend(proto, gogoproto_gogo_pb);
 //var google_protobuf_any_pb = require('google-protobuf/google/protobuf/any_pb.js');
-//xxl ##00 modify any_pb path
 var google_protobuf_any_pb = require('../../../google/protobuf/any_pb.js');
 
 goog.object.extend(proto, google_protobuf_any_pb);
@@ -128,14 +127,6 @@ proto.cosmos.auth.v1beta1.BaseAccount.prototype.toObject = function(opt_includeI
  */
 proto.cosmos.auth.v1beta1.BaseAccount.toObject = function(includeInstance, msg) {
   
-  let t1 = msg.getPubKey();
-  console.log("xxl proto.cosmos.auth.v1beta1.BaseAccount.toObject 0001 t1");
-  console.log(t1);
-
-  let t2 = google_protobuf_any_pb.Any.toObject(includeInstance, t1)
-  console.log("xxl proto.cosmos.auth.v1beta1.BaseAccount.toObject 0002 t2");
-  console.log(t2);
-
   var f, obj = {
     address: jspb.Message.getFieldWithDefault(msg, 1, ""),
     pubKey: (f = msg.getPubKey()) && google_protobuf_any_pb.Any.toObject(includeInstance, f),

@@ -82,15 +82,6 @@ proto.ethermint.types.v1.EthAccount.prototype.toObject = function(opt_includeIns
 proto.ethermint.types.v1.EthAccount.toObject = function(includeInstance, msg) {
 
 
-  let t1 = msg.getBaseAccount();
-  console.log("xxl toObject 1");
-  console.log(t1);
-
-  let t2 = cosmos_auth_v1beta1_auth_pb.BaseAccount.toObject(includeInstance, t1)
-  console.log("xxl toObject 2");
-  console.log(t2);
-
-
   var f, obj = {
     baseAccount: (f = msg.getBaseAccount()) && cosmos_auth_v1beta1_auth_pb.BaseAccount.toObject(includeInstance, f),
     codeHash: jspb.Message.getFieldWithDefault(msg, 2, "")
@@ -111,11 +102,9 @@ proto.ethermint.types.v1.EthAccount.toObject = function(includeInstance, msg) {
  */
 proto.ethermint.types.v1.EthAccount.deserializeBinary = function(bytes) {
 
-  console.log("xxl 04 deserializeBinary ");
   var reader = new jspb.BinaryReader(bytes);
-  console.log("xxl 041 deserializeBinary ");
   var msg = new proto.ethermint.types.v1.EthAccount;
-  console.log("xxl 042 deserializeBinary ");
+
   return proto.ethermint.types.v1.EthAccount.deserializeBinaryFromReader(msg, reader);
 };
 
@@ -129,23 +118,16 @@ proto.ethermint.types.v1.EthAccount.deserializeBinary = function(bytes) {
  */
 proto.ethermint.types.v1.EthAccount.deserializeBinaryFromReader = function(msg, reader) {
 
-  console.log("xxl 045 deserializeBinaryFromReader start .");
   while (reader.nextField()) {
 
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
-    console.log("xxl 05 deserializeBinaryFromReader ");
    
     switch (field) {
     case 1:
       var value = new cosmos_auth_v1beta1_auth_pb.BaseAccount;
-      console.log("xxl 06 deserializeBinaryFromReader");
-      console.log(value);
-      console.log("xxl end ");
-      
-
       reader.readMessage(value,cosmos_auth_v1beta1_auth_pb.BaseAccount.deserializeBinaryFromReader);
       msg.setBaseAccount(value);
       break;

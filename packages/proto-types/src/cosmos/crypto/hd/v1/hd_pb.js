@@ -84,21 +84,11 @@ proto.cosmos.crypto.hd.v1.BIP44Params.toObject = function(includeInstance, msg) 
     addressIndex: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
-  //
-  console.log("xxl proto.cosmos.crypto.hd.v1.BIP44Params.toObject : ");
-  console.log("xxl f :");
-  console.log(f);
-
-  console.log("xxl obj :");
-  console.log(obj);
-
-
   if (includeInstance) {
     obj.$jspbMessageInstance = msg;
   }
   return obj;
 };
-}
 
 
 /**

@@ -10,13 +10,12 @@ import {
   PeriodicVestingAccount,
 } from "cosmjs-types/cosmos/vesting/v1beta1/vesting";
 
-//xxl ##00 add accounts require
+//xxl 00 add accounts require
 const auth_auth_pb = require("@uptsmart/proto-types/src/ethermint/types/v1/account_pb");
 //const auth_auth_pb = require('../../proto-types/ethermint/types/v1/account_pb');
 
 import { Any } from "cosmjs-types/google/protobuf/any";
 import Long from "long";
-import { isMsgSetWithdrawAddress } from "@cosmjs/launchpad/types/msgs";
 
 export interface Account {
   /** Bech32 account address */
@@ -33,11 +32,11 @@ function uint64FromProto(input: number | Long): Uint64 {
 function accountFromBaseAccount(input: BaseAccount): Account {
   const { address, pubKey, accountNumber, sequence } = input;
 
-  console.log("xxl 03 accountFromBaseAccount");
+  console.log("xxl 00 accountFromBaseAccount");
   console.log([address, pubKey, accountNumber, sequence]);
   const pubkey = decodePubkey(pubKey);
 
-  console.log("xxl 031 accountFromBaseAccount");
+  console.log("xxl 00 accountFromBaseAccount");
   console.log(pubkey);
   
   return {
@@ -90,13 +89,13 @@ export function accountFromAny(input: Any): Account {
       return accountFromBaseAccount(baseAccount);
     }
 
-    //xxl ##00 add accounts case
+    //xxl 00 add accounts case
     case '/ethermint.types.v1.EthAccount':{
 
-      console.log("xxl 01 /ethermint.types.v1.EthAccount is: ");
+      console.log("xxl 00 /ethermint.types.v1.EthAccount is: ");
       const accountObj = auth_auth_pb.EthAccount.deserializeBinary(value)?.toObject();
       const baseAccount = accountObj.baseAccount;
-      console.log("xxl 02 baseAccount");
+      console.log("xxl 00 baseAccount");
 
       assert(baseAccount);
       return accountFromBaseAccount(baseAccount);

@@ -42,13 +42,13 @@ function decodeSinglePubkey(pubkey: Any): SinglePubkey {
     case "/cosmos.crypto.secp256k1.PubKey": {
       const { key } = PubKey.decode(pubkey.value);
 
-      console.log("xxl decodeSinglePubkey start ... ");
+      console.log("xxl 00 decodeSinglePubkey start ... ");
       console.log(key);
 
       let encodePubkey = encodeSecp256k1Pubkey(key);
-      console.log("xxl encodePubkey : " + encodePubkey);
+      console.log("xxl 00 encodePubkey : " + encodePubkey);
 
-      console.log("xxl decodeSinglePubkey end ");
+      console.log("xxl 00 decodeSinglePubkey end ");
 
       // return encodeSecp256k1Pubkey(key);
       return encodePubkey;
@@ -66,8 +66,8 @@ export function decodePubkey(pubkey?: Any | null): Pubkey | null {
     return null;
   }
 
-  console.log("xxl pubkey.typeUr is 1: " + pubkey.typeUrl);
-  console.log("xxl pubkey is ");
+  console.log("xxl 00 pubkey.typeUr is 1: " + pubkey.typeUrl);
+  console.log("xxl 00 pubkey is ");
   console.log(pubkey);
 
   switch (pubkey.typeUrl) {
