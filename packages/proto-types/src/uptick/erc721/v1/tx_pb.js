@@ -140,7 +140,9 @@ proto.uptick.erc721.v1.MsgConvertNFT.toObject = function(includeInstance, msg) {
     classId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     nftId: jspb.Message.getFieldWithDefault(msg, 2, ""),
     receiver: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    sender: jspb.Message.getFieldWithDefault(msg, 4, "")
+    sender: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    contractAddress: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    tokenId: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -192,6 +194,14 @@ proto.uptick.erc721.v1.MsgConvertNFT.deserializeBinaryFromReader = function(msg,
     case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setSender(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setContractAddress(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTokenId(value);
       break;
     default:
       reader.skipField();
@@ -247,6 +257,20 @@ proto.uptick.erc721.v1.MsgConvertNFT.serializeBinaryToWriter = function(message,
   if (f.length > 0) {
     writer.writeString(
       4,
+      f
+    );
+  }
+  f = message.getContractAddress();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+  f = message.getTokenId();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
       f
     );
   }
@@ -322,6 +346,42 @@ proto.uptick.erc721.v1.MsgConvertNFT.prototype.getSender = function() {
  */
 proto.uptick.erc721.v1.MsgConvertNFT.prototype.setSender = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional string contract_address = 5;
+ * @return {string}
+ */
+proto.uptick.erc721.v1.MsgConvertNFT.prototype.getContractAddress = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.uptick.erc721.v1.MsgConvertNFT} returns this
+ */
+proto.uptick.erc721.v1.MsgConvertNFT.prototype.setContractAddress = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string token_id = 6;
+ * @return {string}
+ */
+proto.uptick.erc721.v1.MsgConvertNFT.prototype.getTokenId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.uptick.erc721.v1.MsgConvertNFT} returns this
+ */
+proto.uptick.erc721.v1.MsgConvertNFT.prototype.setTokenId = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -461,7 +521,9 @@ proto.uptick.erc721.v1.MsgConvertERC721.toObject = function(includeInstance, msg
     contractAddress: jspb.Message.getFieldWithDefault(msg, 1, ""),
     tokenId: jspb.Message.getFieldWithDefault(msg, 2, ""),
     receiver: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    sender: jspb.Message.getFieldWithDefault(msg, 4, "")
+    sender: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    classId: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    nftId: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -513,6 +575,14 @@ proto.uptick.erc721.v1.MsgConvertERC721.deserializeBinaryFromReader = function(m
     case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setSender(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setClassId(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setNftId(value);
       break;
     default:
       reader.skipField();
@@ -568,6 +638,20 @@ proto.uptick.erc721.v1.MsgConvertERC721.serializeBinaryToWriter = function(messa
   if (f.length > 0) {
     writer.writeString(
       4,
+      f
+    );
+  }
+  f = message.getClassId();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+  f = message.getNftId();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
       f
     );
   }
@@ -643,6 +727,42 @@ proto.uptick.erc721.v1.MsgConvertERC721.prototype.getSender = function() {
  */
 proto.uptick.erc721.v1.MsgConvertERC721.prototype.setSender = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional string class_id = 5;
+ * @return {string}
+ */
+proto.uptick.erc721.v1.MsgConvertERC721.prototype.getClassId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.uptick.erc721.v1.MsgConvertERC721} returns this
+ */
+proto.uptick.erc721.v1.MsgConvertERC721.prototype.setClassId = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string nft_id = 6;
+ * @return {string}
+ */
+proto.uptick.erc721.v1.MsgConvertERC721.prototype.getNftId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.uptick.erc721.v1.MsgConvertERC721} returns this
+ */
+proto.uptick.erc721.v1.MsgConvertERC721.prototype.setNftId = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 

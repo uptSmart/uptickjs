@@ -911,6 +911,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/mocha@npm:^10.0.1":
+  version: 10.0.1
+  resolution: "@types/mocha@npm:10.0.1"
+  checksum: 224ea9fce7b1734ccdb9aa99a622d902a538ce1847bca7fd22c5fb38adcf3ed536f50f48f587085db988a4bb3c2eb68f4b98e1cd6a38bc5547bd3bbbedc54495
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*, @types/node@npm:>=10.0.0, @types/node@npm:>=13.7.0":
   version: 18.11.14
   resolution: "@types/node@npm:18.11.14"
@@ -1167,6 +1174,7 @@ __metadata:
     "@types/karma-jasmine": ^4
     "@types/karma-jasmine-html-reporter": ^1
     "@types/long": ^4.0.1
+    "@types/mocha": ^10.0.1
     "@types/node": ^15.0.1
     "@typescript-eslint/eslint-plugin": ^4.28
     "@typescript-eslint/parser": ^4.28
@@ -1205,7 +1213,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@uptsmart/uptickjs@^1.0.0, @uptsmart/uptickjs@workspace:.":
+"@uptsmart/uptickjs@workspace:.":
   version: 0.0.0-use.local
   resolution: "@uptsmart/uptickjs@workspace:."
   dependencies:
@@ -1214,7 +1222,6 @@ __metadata:
     "@cosmjs/encoding": 0.27.1
     "@uptsmart/proto-signing": 0.27.2
     "@uptsmart/stargate": 0.27.4
-    "@uptsmart/uptickjs": ^1.0.0
     eslint: ^7.5
     prettier: ^2.4.1
     typescript: ~4.4

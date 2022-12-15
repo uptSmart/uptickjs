@@ -49,8 +49,5 @@
     "eslint": "^7.5",
     "prettier": "^2.4.1",
     "typescript": "~4.4"
-  },
-  "dependencies": {
-    "@uptsmart/uptickjs": "^1.0.0"
   }
 }
