@@ -11,9 +11,9 @@ import {
 } from "cosmjs-types/cosmos/vesting/v1beta1/vesting";
 
 //xxl 00 add accounts require
-const auth_auth_pb = require("@uptsmart/proto-types/src/ethermint/types/v1/account_pb");
-//const auth_auth_pb = require('../../proto-types/ethermint/types/v1/account_pb');
-
+//const auth_auth_pb = require("@uptsmart/proto-types/src/ethermint/types/v1/account_pb");
+const auth_auth_pb = require('../../proto-types/src/ethermint/types/v1/account_pb');
+                    
 import { Any } from "cosmjs-types/google/protobuf/any";
 import Long from "long";
 
@@ -30,6 +30,8 @@ function uint64FromProto(input: number | Long): Uint64 {
 }
 
 function accountFromBaseAccount(input: BaseAccount): Account {
+
+
   const { address, pubKey, accountNumber, sequence } = input;
 
   console.log("xxl 00 accountFromBaseAccount");
@@ -92,11 +94,11 @@ export function accountFromAny(input: Any): Account {
     //xxl 00 add accounts case
     case '/ethermint.types.v1.EthAccount':{
 
-      console.log("xxl 00 /ethermint.types.v1.EthAccount is: ");
+      console.log("xxl 00 /ethermint.types.v1.EthAccount is: 111 ",value);
       const accountObj = auth_auth_pb.EthAccount.deserializeBinary(value)?.toObject();
+      console.log("xxl 00 accountObj",accountObj);
       const baseAccount = accountObj.baseAccount;
       console.log("xxl 00 baseAccount");
-
       assert(baseAccount);
       return accountFromBaseAccount(baseAccount);
     }

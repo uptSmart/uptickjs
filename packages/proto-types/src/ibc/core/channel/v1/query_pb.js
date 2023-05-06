@@ -13,13 +13,7 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = (function() {
-  if (this) { return this; }
-  if (typeof window !== 'undefined') { return window; }
-  if (typeof global !== 'undefined') { return global; }
-  if (typeof self !== 'undefined') { return self; }
-  return Function('return this')();
-}.call(null));
+var global = (function() { return this || window || global || self || Function('return this')(); }).call(null);
 
 var ibc_core_client_v1_client_pb = require('../../../../ibc/core/client/v1/client_pb.js');
 goog.object.extend(proto, ibc_core_client_v1_client_pb);
@@ -448,7 +442,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest.repeatedFields_, null);
 };
 goog.inherits(proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -4596,6 +4590,13 @@ proto.ibc.core.channel.v1.QueryPacketAcknowledgementResponse.prototype.hasProofH
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest.repeatedFields_ = [4];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -4629,7 +4630,8 @@ proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest.toObject = function
   var f, obj = {
     portId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     channelId: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    pagination: (f = msg.getPagination()) && cosmos_base_query_v1beta1_pagination_pb.PageRequest.toObject(includeInstance, f)
+    pagination: (f = msg.getPagination()) && cosmos_base_query_v1beta1_pagination_pb.PageRequest.toObject(includeInstance, f),
+    packetCommitmentSequencesList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -4678,6 +4680,12 @@ proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest.deserializeBinaryFr
       var value = new cosmos_base_query_v1beta1_pagination_pb.PageRequest;
       reader.readMessage(value,cosmos_base_query_v1beta1_pagination_pb.PageRequest.deserializeBinaryFromReader);
       msg.setPagination(value);
+      break;
+    case 4:
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedUint64() : [reader.readUint64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addPacketCommitmentSequences(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -4728,6 +4736,13 @@ proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest.serializeBinaryToWr
       3,
       f,
       cosmos_base_query_v1beta1_pagination_pb.PageRequest.serializeBinaryToWriter
+    );
+  }
+  f = message.getPacketCommitmentSequencesList();
+  if (f.length > 0) {
+    writer.writePackedUint64(
+      4,
+      f
     );
   }
 };
@@ -4803,6 +4818,43 @@ proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest.prototype.clearPagi
  */
 proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest.prototype.hasPagination = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * repeated uint64 packet_commitment_sequences = 4;
+ * @return {!Array<number>}
+ */
+proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest.prototype.getPacketCommitmentSequencesList = function() {
+  return /** @type {!Array<number>} */ (jspb.Message.getRepeatedField(this, 4));
+};
+
+
+/**
+ * @param {!Array<number>} value
+ * @return {!proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest} returns this
+ */
+proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest.prototype.setPacketCommitmentSequencesList = function(value) {
+  return jspb.Message.setField(this, 4, value || []);
+};
+
+
+/**
+ * @param {number} value
+ * @param {number=} opt_index
+ * @return {!proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest} returns this
+ */
+proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest.prototype.addPacketCommitmentSequences = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest} returns this
+ */
+proto.ibc.core.channel.v1.QueryPacketAcknowledgementsRequest.prototype.clearPacketCommitmentSequencesList = function() {
+  return this.setPacketCommitmentSequencesList([]);
 };
 
 

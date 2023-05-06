@@ -264,5 +264,127 @@ proto.ibc.applications.transfer.v1.QueryPromiseClient.prototype.params =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ibc.applications.transfer.v1.QueryDenomHashRequest,
+ *   !proto.ibc.applications.transfer.v1.QueryDenomHashResponse>}
+ */
+const methodDescriptor_Query_DenomHash = new grpc.web.MethodDescriptor(
+  '/ibc.applications.transfer.v1.Query/DenomHash',
+  grpc.web.MethodType.UNARY,
+  proto.ibc.applications.transfer.v1.QueryDenomHashRequest,
+  proto.ibc.applications.transfer.v1.QueryDenomHashResponse,
+  /**
+   * @param {!proto.ibc.applications.transfer.v1.QueryDenomHashRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ibc.applications.transfer.v1.QueryDenomHashResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ibc.applications.transfer.v1.QueryDenomHashRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.applications.transfer.v1.QueryDenomHashResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ibc.applications.transfer.v1.QueryDenomHashResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ibc.applications.transfer.v1.QueryClient.prototype.denomHash =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ibc.applications.transfer.v1.Query/DenomHash',
+      request,
+      metadata || {},
+      methodDescriptor_Query_DenomHash,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ibc.applications.transfer.v1.QueryDenomHashRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ibc.applications.transfer.v1.QueryDenomHashResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ibc.applications.transfer.v1.QueryPromiseClient.prototype.denomHash =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ibc.applications.transfer.v1.Query/DenomHash',
+      request,
+      metadata || {},
+      methodDescriptor_Query_DenomHash);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ibc.applications.transfer.v1.QueryEscrowAddressRequest,
+ *   !proto.ibc.applications.transfer.v1.QueryEscrowAddressResponse>}
+ */
+const methodDescriptor_Query_EscrowAddress = new grpc.web.MethodDescriptor(
+  '/ibc.applications.transfer.v1.Query/EscrowAddress',
+  grpc.web.MethodType.UNARY,
+  proto.ibc.applications.transfer.v1.QueryEscrowAddressRequest,
+  proto.ibc.applications.transfer.v1.QueryEscrowAddressResponse,
+  /**
+   * @param {!proto.ibc.applications.transfer.v1.QueryEscrowAddressRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ibc.applications.transfer.v1.QueryEscrowAddressResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ibc.applications.transfer.v1.QueryEscrowAddressRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.applications.transfer.v1.QueryEscrowAddressResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ibc.applications.transfer.v1.QueryEscrowAddressResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ibc.applications.transfer.v1.QueryClient.prototype.escrowAddress =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ibc.applications.transfer.v1.Query/EscrowAddress',
+      request,
+      metadata || {},
+      methodDescriptor_Query_EscrowAddress,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ibc.applications.transfer.v1.QueryEscrowAddressRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ibc.applications.transfer.v1.QueryEscrowAddressResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ibc.applications.transfer.v1.QueryPromiseClient.prototype.escrowAddress =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ibc.applications.transfer.v1.Query/EscrowAddress',
+      request,
+      metadata || {},
+      methodDescriptor_Query_EscrowAddress);
+};
+
+
 module.exports = proto.ibc.applications.transfer.v1;
 

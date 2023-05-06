@@ -87,6 +87,12 @@ proto.ethermint.types.v1.EthAccount.toObject = function(includeInstance, msg) {
     codeHash: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
+  // var f, obj = {
+  //   baseAccount: f = msg.getBaseAccount(),
+  //   codeHash: jspb.Message.getFieldWithDefault(msg, 2, "")
+  // };
+
+
   if (includeInstance) {
     obj.$jspbMessageInstance = msg;
   }
@@ -102,6 +108,7 @@ proto.ethermint.types.v1.EthAccount.toObject = function(includeInstance, msg) {
  */
 proto.ethermint.types.v1.EthAccount.deserializeBinary = function(bytes) {
 
+  
   var reader = new jspb.BinaryReader(bytes);
   var msg = new proto.ethermint.types.v1.EthAccount;
 
@@ -124,7 +131,7 @@ proto.ethermint.types.v1.EthAccount.deserializeBinaryFromReader = function(msg, 
       break;
     }
     var field = reader.getFieldNumber();
-   
+    console.log("xxl field ",reader);
     switch (field) {
     case 1:
       var value = new cosmos_auth_v1beta1_auth_pb.BaseAccount;

@@ -13,13 +13,7 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = (function() {
-  if (this) { return this; }
-  if (typeof window !== 'undefined') { return window; }
-  if (typeof global !== 'undefined') { return global; }
-  if (typeof self !== 'undefined') { return self; }
-  return Function('return this')();
-}.call(null));
+var global = (function() { return this || window || global || self || Function('return this')(); }).call(null);
 
 var google_protobuf_any_pb = require('google-protobuf/google/protobuf/any_pb.js');
 goog.object.extend(proto, google_protobuf_any_pb);
@@ -27,6 +21,8 @@ var gogoproto_gogo_pb = require('../../../gogoproto/gogo_pb.js');
 goog.object.extend(proto, gogoproto_gogo_pb);
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 goog.object.extend(proto, google_protobuf_timestamp_pb);
+var cosmos_proto_cosmos_pb = require('../../../cosmos_proto/cosmos_pb.js');
+goog.object.extend(proto, cosmos_proto_cosmos_pb);
 goog.exportSymbol('proto.cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposal', null, global);
 goog.exportSymbol('proto.cosmos.upgrade.v1beta1.ModuleVersion', null, global);
 goog.exportSymbol('proto.cosmos.upgrade.v1beta1.Plan', null, global);

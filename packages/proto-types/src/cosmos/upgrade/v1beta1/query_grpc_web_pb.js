@@ -320,5 +320,66 @@ proto.cosmos.upgrade.v1beta1.QueryPromiseClient.prototype.moduleVersions =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cosmos.upgrade.v1beta1.QueryAuthorityRequest,
+ *   !proto.cosmos.upgrade.v1beta1.QueryAuthorityResponse>}
+ */
+const methodDescriptor_Query_Authority = new grpc.web.MethodDescriptor(
+  '/cosmos.upgrade.v1beta1.Query/Authority',
+  grpc.web.MethodType.UNARY,
+  proto.cosmos.upgrade.v1beta1.QueryAuthorityRequest,
+  proto.cosmos.upgrade.v1beta1.QueryAuthorityResponse,
+  /**
+   * @param {!proto.cosmos.upgrade.v1beta1.QueryAuthorityRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cosmos.upgrade.v1beta1.QueryAuthorityResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cosmos.upgrade.v1beta1.QueryAuthorityRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.upgrade.v1beta1.QueryAuthorityResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cosmos.upgrade.v1beta1.QueryAuthorityResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cosmos.upgrade.v1beta1.QueryClient.prototype.authority =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cosmos.upgrade.v1beta1.Query/Authority',
+      request,
+      metadata || {},
+      methodDescriptor_Query_Authority,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cosmos.upgrade.v1beta1.QueryAuthorityRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cosmos.upgrade.v1beta1.QueryAuthorityResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cosmos.upgrade.v1beta1.QueryPromiseClient.prototype.authority =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cosmos.upgrade.v1beta1.Query/Authority',
+      request,
+      metadata || {},
+      methodDescriptor_Query_Authority);
+};
+
+
 module.exports = proto.cosmos.upgrade.v1beta1;
 

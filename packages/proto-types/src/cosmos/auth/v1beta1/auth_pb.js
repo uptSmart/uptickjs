@@ -13,21 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = (function() {
-  if (this) { return this; }
-  if (typeof window !== 'undefined') { return window; }
-  if (typeof global !== 'undefined') { return global; }
-  if (typeof self !== 'undefined') { return self; }
-  return Function('return this')();
-}.call(null));
+var global = (function() { return this || window || global || self || Function('return this')(); }).call(null);
 
 var cosmos_proto_cosmos_pb = require('../../../cosmos_proto/cosmos_pb.js');
 goog.object.extend(proto, cosmos_proto_cosmos_pb);
 var gogoproto_gogo_pb = require('../../../gogoproto/gogo_pb.js');
 goog.object.extend(proto, gogoproto_gogo_pb);
-//var google_protobuf_any_pb = require('google-protobuf/google/protobuf/any_pb.js');
-var google_protobuf_any_pb = require('../../../google/protobuf/any_pb.js');
-
+var google_protobuf_any_pb = require('google-protobuf/google/protobuf/any_pb.js');
 goog.object.extend(proto, google_protobuf_any_pb);
 goog.exportSymbol('proto.cosmos.auth.v1beta1.BaseAccount', null, global);
 goog.exportSymbol('proto.cosmos.auth.v1beta1.ModuleAccount', null, global);
@@ -126,13 +118,21 @@ proto.cosmos.auth.v1beta1.BaseAccount.prototype.toObject = function(opt_includeI
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.cosmos.auth.v1beta1.BaseAccount.toObject = function(includeInstance, msg) {
-  
+
+  // var f, obj = {
+  //   address: jspb.Message.getFieldWithDefault(msg, 1, ""),
+  //   pubKey: (f = msg.getPubKey()) && google_protobuf_any_pb.Any.toObject(includeInstance, f),
+  //   accountNumber: jspb.Message.getFieldWithDefault(msg, 3, 0),
+  //   sequence: jspb.Message.getFieldWithDefault(msg, 4, 0)
+  // };
+
   var f, obj = {
     address: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    pubKey: (f = msg.getPubKey()) && google_protobuf_any_pb.Any.toObject(includeInstance, f),
+    pubKey: (f = msg.getPubKey()),
     accountNumber: jspb.Message.getFieldWithDefault(msg, 3, 0),
     sequence: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
+
 
   if (includeInstance) {
     obj.$jspbMessageInstance = msg;

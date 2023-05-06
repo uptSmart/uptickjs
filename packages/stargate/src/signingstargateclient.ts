@@ -88,6 +88,10 @@ const erc20_tx_pb = require("@uptsmart/proto-types/src/uptick/erc20/v1/tx_pb");
 //xxl 02 local
 const erc721_tx_pb = require("../../proto-types/src/uptick/erc721/v1/tx_pb")
 
+//xxl 02 local
+const nft_transfer_tx_pb = require("../../proto-types/src/ibc/applications/nft_transfer/v1/tx_pb")
+
+
 import Long from "long";
 
 import { AminoTypes } from "./aminotypes";
@@ -154,6 +158,9 @@ export const defaultRegistryTypes: ReadonlyArray<[string, GeneratedType]> = [
   //xxl 02 list 
   ["/uptick.erc721.v1.MsgConvertERC721", erc721_tx_pb.MsgConvertERC721],
   ["/uptick.erc721.v1.MsgConvertNFT", erc721_tx_pb.MsgConvertNFT],
+
+  //xxl 03 list 
+  ["/ibc.applications.nft_transfer.v1.MsgTransfer", nft_transfer_tx_pb.MsgTransfer],
   
 
 ];
@@ -385,6 +392,7 @@ export class SigningStargateClient extends StargateClient {
     } else {
       usedFee = fee;
     }
+    debugger
     const txRaw = await this.sign(signerAddress, messages, usedFee, memo);
 
     const txBytes = TxRaw.encode(txRaw).finish();
@@ -485,7 +493,13 @@ export class SigningStargateClient extends StargateClient {
       throw new Error("Failed to retrieve account from signer");
     }
     const pubkey = encodePubkey(encodeSecp256k1Pubkey(accountFromSigner.pubkey));
-    pubkey.typeUrl = "/ethermint.crypto.v1.ethsecp256k1.PubKey";
+    if(accountFromSigner.address.indexOf("uptick") != -1){
+      pubkey.typeUrl = "/ethermint.crypto.v1.ethsecp256k1.PubKey";
+    }
+    else{
+      pubkey.typeUrl = "/cosmos.crypto.secp256k1.PubKey";
+    }
+
 
     const txBodyEncodeObject: TxBodyEncodeObject = {
       typeUrl: "/cosmos.tx.v1beta1.TxBody",

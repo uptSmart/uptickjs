@@ -209,6 +209,67 @@ proto.cosmos.auth.v1beta1.QueryPromiseClient.prototype.account =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cosmos.auth.v1beta1.QueryAccountAddressByIDRequest,
+ *   !proto.cosmos.auth.v1beta1.QueryAccountAddressByIDResponse>}
+ */
+const methodDescriptor_Query_AccountAddressByID = new grpc.web.MethodDescriptor(
+  '/cosmos.auth.v1beta1.Query/AccountAddressByID',
+  grpc.web.MethodType.UNARY,
+  proto.cosmos.auth.v1beta1.QueryAccountAddressByIDRequest,
+  proto.cosmos.auth.v1beta1.QueryAccountAddressByIDResponse,
+  /**
+   * @param {!proto.cosmos.auth.v1beta1.QueryAccountAddressByIDRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cosmos.auth.v1beta1.QueryAccountAddressByIDResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cosmos.auth.v1beta1.QueryAccountAddressByIDRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.auth.v1beta1.QueryAccountAddressByIDResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cosmos.auth.v1beta1.QueryAccountAddressByIDResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cosmos.auth.v1beta1.QueryClient.prototype.accountAddressByID =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cosmos.auth.v1beta1.Query/AccountAddressByID',
+      request,
+      metadata || {},
+      methodDescriptor_Query_AccountAddressByID,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cosmos.auth.v1beta1.QueryAccountAddressByIDRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cosmos.auth.v1beta1.QueryAccountAddressByIDResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cosmos.auth.v1beta1.QueryPromiseClient.prototype.accountAddressByID =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cosmos.auth.v1beta1.Query/AccountAddressByID',
+      request,
+      metadata || {},
+      methodDescriptor_Query_AccountAddressByID);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.cosmos.auth.v1beta1.QueryParamsRequest,
  *   !proto.cosmos.auth.v1beta1.QueryParamsResponse>}
  */
@@ -325,6 +386,67 @@ proto.cosmos.auth.v1beta1.QueryPromiseClient.prototype.moduleAccounts =
       request,
       metadata || {},
       methodDescriptor_Query_ModuleAccounts);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cosmos.auth.v1beta1.QueryModuleAccountByNameRequest,
+ *   !proto.cosmos.auth.v1beta1.QueryModuleAccountByNameResponse>}
+ */
+const methodDescriptor_Query_ModuleAccountByName = new grpc.web.MethodDescriptor(
+  '/cosmos.auth.v1beta1.Query/ModuleAccountByName',
+  grpc.web.MethodType.UNARY,
+  proto.cosmos.auth.v1beta1.QueryModuleAccountByNameRequest,
+  proto.cosmos.auth.v1beta1.QueryModuleAccountByNameResponse,
+  /**
+   * @param {!proto.cosmos.auth.v1beta1.QueryModuleAccountByNameRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cosmos.auth.v1beta1.QueryModuleAccountByNameResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cosmos.auth.v1beta1.QueryModuleAccountByNameRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.auth.v1beta1.QueryModuleAccountByNameResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cosmos.auth.v1beta1.QueryModuleAccountByNameResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cosmos.auth.v1beta1.QueryClient.prototype.moduleAccountByName =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cosmos.auth.v1beta1.Query/ModuleAccountByName',
+      request,
+      metadata || {},
+      methodDescriptor_Query_ModuleAccountByName,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cosmos.auth.v1beta1.QueryModuleAccountByNameRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cosmos.auth.v1beta1.QueryModuleAccountByNameResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cosmos.auth.v1beta1.QueryPromiseClient.prototype.moduleAccountByName =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cosmos.auth.v1beta1.Query/ModuleAccountByName',
+      request,
+      metadata || {},
+      methodDescriptor_Query_ModuleAccountByName);
 };
 
 
